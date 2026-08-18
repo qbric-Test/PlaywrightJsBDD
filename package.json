@@ -1,0 +1,55 @@
+{
+  "name": "playwright-js-bdd",
+  "version": "1.0.0",
+  "description": "Playwright + JavaScript + Cucumber BDD automation framework using the Page Object Model",
+  "main": "index.js",
+  "private": true,
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "clean": "rimraf reports test-results",
+    "pretest": "npm run clean",
+    "test": "cucumber-js --config cucumber.js",
+    "posttest": "npm run report",
+    "smoke": "cucumber-js --config cucumber.js --tags @smoke",
+    "regression": "cucumber-js --config cucumber.js --tags @regression",
+    "headed": "cross-env HEADLESS=false cucumber-js --config cucumber.js",
+    "chrome": "cross-env BROWSER=chromium cucumber-js --config cucumber.js",
+    "firefox": "cross-env BROWSER=firefox cucumber-js --config cucumber.js",
+    "webkit": "cross-env BROWSER=webkit cucumber-js --config cucumber.js",
+    "parallel": "cucumber-js --config cucumber.js --parallel 4",
+    "serial": "cucumber-js --config cucumber.js --parallel 0",
+    "report": "node src/utilities/ReportGenerator.js",
+    "report:open": "node -e \"require('child_process').exec((process.platform==='win32'?'start ':'open ')+'reports/html/index.html')\"",
+    "trace:show": "playwright show-trace",
+    "install:browsers": "playwright install --with-deps",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --ext .js --fix",
+    "format": "prettier --write \"**/*.{js,json,md}\""
+  },
+  "keywords": [
+    "playwright",
+    "javascript",
+    "cucumber",
+    "bdd",
+    "page-object-model",
+    "automation"
+  ],
+  "author": "Qbric",
+  "license": "MIT",
+  "dependencies": {
+    "@playwright/test": "^1.50.1",
+    "dotenv": "^16.4.7",
+    "playwright": "^1.50.1"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.2.0",
+    "chai": "^4.5.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.57.1",
+    "multiple-cucumber-html-reporter": "^3.9.2",
+    "prettier": "^3.4.2",
+    "rimraf": "^6.0.1"
+  }
+}

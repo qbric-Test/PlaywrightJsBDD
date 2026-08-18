@@ -1,0 +1,22 @@
+node_modules/
+
+# Test output: keep the directories, ignore everything generated inside them
+reports/*
+!reports/.gitkeep
+test-results/*
+!test-results/.gitkeep
+playwright-report/
+blob-report/
+.playwright/
+
+*.log
+npm-debug.log*
+
+# Local environment overrides (.env itself is committed: it holds no secrets)
+.env.local
+.env.*.local
+
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

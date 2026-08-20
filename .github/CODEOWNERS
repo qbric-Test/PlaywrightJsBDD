@@ -1,0 +1,7 @@
+# Default reviewer for every change in this repository.
+#
+# GitHub resolves CODEOWNERS from the BASE branch of a pull request, so this
+# file must exist on every protected branch — main and dev both — for the
+# "Require review from Code Owners" rule to apply to PRs targeting them.
+
+* @mufaizan-nisum-com
